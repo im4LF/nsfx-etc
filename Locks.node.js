@@ -3,7 +3,7 @@
 module.exports = {
     _in(message, done) {
         if (this.locked) {
-            this.logger.info({ locked: this.locked }, this.name + '_in')
+            this.logger.debug({ locked: this.locked }, this.name + '_in')
             this.send('pass', message, done)
         }
         else {
@@ -14,7 +14,7 @@ module.exports = {
     out_: 1,
     pass_: 1,
     _unlock(message, done) {
-        this.logger.info(message, this.name + '_reset')
+        this.logger.debug(message, this.name + '_reset')
         this.locked = false
         done()
     }
